@@ -1,0 +1,19 @@
+# Username Generator - Python Dependencies
+
+# Required packages:
+requests>=2.25.0
+
+# Standard library modules used:
+# - random (for username generation)
+# - string (for character sets)
+# - time (for rate limiting)
+# - typing (for type hints)
+# - argparse (for command-line arguments)
+# - sys (for system parameters)
+
+# Installation:
+# pip install requests
+
+# To run this project, you need:
+# - Python 3.6 or higher
+# - Internet connection (for availability checking)
