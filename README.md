@@ -1,267 +1,139 @@
-# 🎯 Universal Username Generator
+# Username Generator
 
-A powerful Python tool that generates available usernames for popular websites and apps. Check availability across multiple platforms and find the perfect username for your online presence!
+A Python tool that generates meaningful usernames and checks their availability across popular websites and social media platforms.
 
-## ✨ Features
+## Features
 
-- **Multi-Platform Support**: Generate usernames for 12+ popular websites and apps
-- **Availability Checking**: Automatically check if usernames are available
-- **Multiple Styles**: Random, themed, and minimal username generation
-- **Smart Search**: Find available usernames across multiple platforms
-- **Interactive Mode**: User-friendly command-line interface
-- **Rate Limiting**: Respectful API usage with built-in delays
-- **Comprehensive Coverage**: GitHub, Twitter, Instagram, TikTok, Discord, Reddit, YouTube, Twitch, Steam, and more!
+- **Smart Username Generation**: Creates meaningful, short usernames using real words
+- **Availability Checking**: Checks if usernames are available on major platforms
+- **Advanced Bypass Techniques**: Uses sophisticated methods to check availability even on protected sites
+- **Multiple Generation Styles**: Various approaches to create different types of usernames
 
-## 🚀 Quick Start
+## Supported Platforms
 
-### Installation
+| Platform | Status | Description |
+|----------|--------|-------------|
+| GitHub | Working | Code repository hosting |
+| Twitter/X | Working | Social media platform |
+| Instagram | Working | Photo sharing platform |
+| TikTok | Working | Short video platform |
+| YouTube | Working | Video sharing platform |
+| Snapchat | Working | Photo messaging app |
+| Steam | Working | Gaming platform |
+| Discord | Manual | Gaming communication platform |
+| Reddit | Manual | Discussion platform |
+| Twitch | Manual | Live streaming platform |
+| Spotify | Manual | Music streaming service |
+| LinkedIn | Manual | Professional networking |
 
-1. **Clone or download** this repository
-2. **Install dependencies**:
-   ```bash
-   pip install requests
-   ```
-3. **Run the application**:
-   ```bash
-   python username_generator.py
-   ```
+## Installation
 
-### Interactive Mode (Recommended)
-
+1. Make sure you have Python 3.7+ installed
+2. Install the required dependencies:
 ```bash
-python username_generator.py
+pip install requests
 ```
 
-Follow the menu to generate and check usernames!
+## Usage
 
-## 🛠️ Usage Examples
+### Basic Usage
 
-### Generate Random Usernames
-
+Generate 5 usernames:
 ```bash
-# Generate 5 random usernames
 python username_generator.py -g 5
-
-# Generate 10 usernames with custom length
-python username_generator.py -g 10 -l 12
 ```
 
-### Generate Themed Usernames
+### Check Availability
+
+Generate usernames and check availability on GitHub:
+```bash
+python username_generator.py -g 3 -c github
+```
+
+### Generation Styles
+
+**Minimal** (short, meaningful words):
+```bash
+python username_generator.py -g 3 -s minimal
+```
+
+**Word Mash** (combines words):
+```bash
+python username_generator.py -g 3 -s word_mash
+```
+
+**Letter Substitution** (replaces letters with numbers/symbols):
+```bash
+python username_generator.py -g 3 -s letter_sub
+```
+
+**Pronounceable Random** (random but readable):
+```bash
+python username_generator.py -g 3 -s pronounceable_random
+```
+
+### Command Line Options
+
+- `-g, --generate N`: Generate N usernames (default: 5)
+- `-s, --style STYLE`: Username generation style
+- `-c, --check WEBSITE`: Check availability on specific website
+- `--list`: Show supported websites
+- `-h, --help`: Show help message
+
+## How It Works
+
+### Username Generation
+
+The tool prioritizes meaningful words over random characters. It uses:
+- Real adjectives and nouns
+- Letter substitutions (e.g., 'a' → '@', 'e' → '3')
+- Word combinations
+- Numbers only as a last resort
+
+### Availability Checking
+
+For platforms with anti-bot protection, the tool uses advanced techniques:
+- Cookie management and session persistence
+- Realistic browser headers and user agents
+- Random delays and human-like behavior
+- Multiple request patterns to avoid detection
+- Content analysis to determine availability
+
+## Examples
 
 ```bash
-# Adjective + Noun style (e.g., "coolcode", "epicdev")
-python username_generator.py -s adjective_noun -g 5
+# Generate 3 minimal usernames
+python username_generator.py -g 3 -s minimal
+# Output: code, data, flow
 
-# Noun + Number style (e.g., "developer", "coder1")
-python username_generator.py -s noun_number -g 5
+# Check if 'devuser' is available on GitHub
+python username_generator.py -g 1 -c github
+# Output: devuser - Available on GitHub
 
-# Minimal style (e.g., "dev", "pro", "ace")
-python username_generator.py -s minimal -g 5
-
-# Word Mash style (e.g., "codeart", "techfun")
-python username_generator.py -s word_mash -g 5
-
-# Letter Substitution style (e.g., "c0de", "h4ck")
-python username_generator.py -s letter_sub -g 5
+# Generate word mash usernames
+python username_generator.py -g 2 -s word_mash
+# Output: codeflow, datastream
 ```
 
-### Check Username Availability
+## Technical Details
 
-```bash
-# Check if "myusername" is available across platforms
-python username_generator.py -c myusername
-```
+The tool includes sophisticated bypass techniques for platforms that block automated requests:
+- **Header Spoofing**: Mimics real browser requests
+- **Session Management**: Maintains cookies and sessions
+- **Rate Limiting**: Uses random delays to avoid detection
+- **Content Analysis**: Analyzes page content to determine availability
+- **Multiple Endpoints**: Tries different API endpoints for each platform
 
-### Find Available Username
+## Requirements
 
-```bash
-# Find an available username automatically
-python username_generator.py -f
+- Python 3.7 or higher
+- requests library
+- Internet connection for availability checking
 
-# Find available username with specific style
-python username_generator.py -f -s minimal
-```
+## License
 
-### Show Supported Platforms
+This project is open source and available under the MIT License.
 
-```bash
-# List all supported websites and apps
-python username_generator.py --list
-```
+## Contributing
 
-## 🌐 Supported Platforms
-
-| Platform | Auto-Check | Description |
-|----------|------------|-------------|
-| **GitHub** | ✅ | Code repository hosting |
-| **Twitter/X** | ✅ | Social media platform |
-| **Instagram** | ✅ | Photo sharing platform |
-| **TikTok** | ✅ | Short video platform |
-| **Reddit** | ✅ | Discussion platform |
-| **YouTube** | ✅ | Video sharing platform |
-| **Twitch** | ✅ | Live streaming platform |
-| **Steam** | ✅ | Gaming platform |
-| **Discord** | ❓ | Gaming communication |
-| **Spotify** | ❓ | Music streaming |
-| **LinkedIn** | ❓ | Professional networking |
-| **Snapchat** | ❓ | Photo messaging |
-
-## 🎨 Username Styles
-
-### 1. Random Style
-- **Example**: `bamoki`, `zepula`, `vixuna`
-- **Best for**: Unique, pronounceable usernames
-- **Features**: Alternating consonants and vowels for readability
-
-### 2. Adjective + Noun Style
-- **Example**: `coolcode`, `epicdev`, `zenhack`
-- **Best for**: Memorable, branded usernames
-- **Features**: Combines descriptive words with tech terms (numbers only as last resort)
-
-### 3. Noun + Number Style
-- **Example**: `developer`, `coder1`, `hack2`
-- **Best for**: Professional, clean usernames
-- **Features**: Uses numbers only when words are too short
-
-### 4. Minimal Style
-- **Example**: `dev`, `pro`, `ace`, `code`, `hack`
-- **Best for**: Short, clean usernames
-- **Features**: 2-6 characters, very meaningful words
-
-### 5. Word Mash Style
-- **Example**: `codeart`, `techfun`, `webjoy`
-- **Best for**: Creative, memorable combinations
-- **Features**: Combines two meaningful words
-
-### 6. Letter Substitution Style
-- **Example**: `c0de`, `h4ck`, `t3ch`
-- **Best for**: Tech-savvy, leet speak style
-- **Features**: Uses numbers that look like letters
-
-## 🔧 Command-Line Options
-
-| Option | Description | Example |
-|--------|-------------|---------|
-| `-g, --generate COUNT` | Generate usernames | `-g 5` |
-| `-s, --style STYLE` | Username style | `-s adjective_noun` |
-| `-c, --check USERNAME` | Check availability | `-c myusername` |
-| `-f, --find` | Find available username | `-f` |
-| `--list` | Show supported platforms | `--list` |
-| `-l, --length LENGTH` | Username length | `-l 12` |
-
-## 🎯 Use Cases
-
-### Personal Branding
-- **Consistent Username**: Use the same username across all platforms
-- **Professional Presence**: Find clean, professional usernames
-- **Brand Building**: Create memorable usernames for your brand
-
-### Content Creation
-- **Streaming**: Find available usernames for Twitch, YouTube
-- **Social Media**: Secure usernames across Instagram, TikTok, Twitter
-- **Gaming**: Check availability on Steam, Discord
-
-### Development
-- **GitHub**: Secure your developer username
-- **Portfolio**: Consistent branding across platforms
-- **Open Source**: Professional username for contributions
-
-## 🔒 Privacy & Ethics
-
-- **Rate Limiting**: Built-in delays to respect website resources
-- **No Data Storage**: No usernames or personal data are stored
-- **Respectful Usage**: Only checks public availability, no account creation
-- **Educational Purpose**: Tool for learning about web APIs and availability checking
-
-## 📁 Project Structure
-
-```
-username-generator/
-├── username_generator.py    # Main application file
-├── requirements.txt         # Python dependencies
-└── README.md               # This documentation
-```
-
-## 🚀 Advanced Features
-
-### Availability Checking Logic
-- **404 Status**: Username is available
-- **200 Status**: Username is taken
-- **Other Status**: Unknown availability
-- **Error Handling**: Graceful handling of network issues
-
-### Smart Generation
-- **Avoid Conflicts**: Generates unique combinations
-- **Length Optimization**: Balances memorability with availability
-- **Style Consistency**: Maintains chosen style across generations
-
-### Interactive Features
-- **Real-time Feedback**: Shows checking progress
-- **Multiple Attempts**: Tries multiple usernames automatically
-- **Platform Coverage**: Checks key platforms first
-
-## 🐛 Troubleshooting
-
-### Common Issues
-
-1. **"requests module not found"**
-   ```bash
-   pip install requests
-   ```
-
-2. **"Username checking failed"**
-   - Check your internet connection
-   - Some platforms may block automated requests
-   - Try again after a few minutes
-
-3. **"No available usernames found"**
-   - Try a different style
-   - Increase max attempts
-   - Use longer usernames
-
-### Rate Limiting
-- The tool includes built-in delays between requests
-- If you get blocked, wait a few minutes before trying again
-- Consider using manual checking for sensitive platforms
-
-## 🔮 Future Enhancements
-
-- [ ] More platform support (Facebook, Pinterest, etc.)
-- [ ] Username suggestions based on your name
-- [ ] Bulk availability checking
-- [ ] Username history tracking
-- [ ] Web interface version
-- [ ] API integration for more platforms
-- [ ] Username strength analysis
-- [ ] Custom word lists
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature-name`
-3. Add new platforms or improve existing features
-4. Commit changes: `git commit -m 'Add feature'`
-5. Push to branch: `git push origin feature-name`
-6. Submit a pull request
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 🙏 Acknowledgments
-
-- All the platforms for providing public APIs
-- The Python community for excellent libraries
-- Open source contributors for inspiration
-
-## 💡 Tips for Best Results
-
-- **Start with key platforms**: GitHub, Twitter, Instagram
-- **Use consistent styles**: Pick one style and stick with it
-- **Check multiple options**: Generate several usernames to choose from
-- **Be patient**: Availability checking takes time
-- **Keep it simple**: Shorter usernames are often more available
-
----
-
-**Find your perfect username across the web! 🌐**
+Feel free to submit issues, feature requests, or pull requests to improve the tool.
