@@ -1103,7 +1103,7 @@ class UsernameGenerator:
         """Check username availability across all supported platforms."""
         results = {}
         
-        print(f"🔍 Checking username '{username}' across platforms...")
+        print(f"Checking username '{username}' across platforms...")
         
         for site_key, site_info in self.websites.items():
             print(f"  Checking {site_info['name']}...", end=' ')
@@ -1115,11 +1115,11 @@ class UsernameGenerator:
                 print(f"    URL: {site_info['url'].format(username=username)}")
             
             if result['available'] == True:
-                print("✅ Available")
+                print("Available")
             elif result['available'] == False:
-                print("❌ Taken")
+                print("Taken")
             else:
-                print("❓ Unknown")
+                print("Unknown")
             
             # Be respectful with rate limiting
             time.sleep(random.uniform(1.0, 3.0))
@@ -1128,7 +1128,7 @@ class UsernameGenerator:
     
     def find_available_username(self, style: str = 'random', max_attempts: int = 10) -> Optional[str]:
         """Find an available username by generating and checking multiple options."""
-        print(f"🎯 Searching for available username (style: {style})...")
+        print(f"Searching for available username (style: {style})...")
         
         for attempt in range(max_attempts):
             username = self.generate_username(style)
@@ -1147,7 +1147,7 @@ class UsernameGenerator:
                 time.sleep(0.3)
             
             if available_count == len(key_platforms):
-                print(f"🎉 Found available username: '{username}'")
+                print(f"Found available username: '{username}'")
                 print(f"💡 Manual check recommended for social media platforms")
                 return username
         
@@ -1167,21 +1167,21 @@ def display_website_list():
     """Display all supported websites."""
     generator = UsernameGenerator()
     
-    print("🌐 SUPPORTED WEBSITES & APPS")
+    print("SUPPORTED WEBSITES & APPS")
     print("=" * 50)
     
     for key, info in generator.websites.items():
-        status = "✅ Check" if info['check_available'] else "❓ Manual"
+        status = "Check" if info['check_available'] else "Manual"
         print(f"{info['name']:<15} {status:<8} {info['description']}")
     
-    print("\nLegend: ✅ Check = Automatic availability checking")
-    print("        ❓ Manual = Manual checking required")
+    print("\nLegend: Check = Automatic availability checking")
+    print("        Manual = Manual checking required")
 
 def interactive_mode():
     """Run the username generator in interactive mode."""
     generator = UsernameGenerator()
     
-    print("🎯 UNIVERSAL USERNAME GENERATOR")
+    print("UNIVERSAL USERNAME GENERATOR")
     print("=" * 40)
     print("Generate usernames for popular websites and apps!")
     
@@ -1204,13 +1204,13 @@ def interactive_mode():
             
             usernames = generator.generate_multiple_usernames(count, 'random')
             
-            print(f"\n🎲 Generated {count} Random Usernames:")
+            print(f"\nGenerated {count} Random Usernames:")
             print("-" * 30)
             for i, username in enumerate(usernames, 1):
                 print(f"{i:2d}. {username}")
         
         elif choice == "2":
-            print("\n🎨 Username Styles:")
+            print("\nUsername Styles:")
             print("1. Adjective + Noun (e.g., 'coolcode', 'epicdev')")
             print("2. Noun + Number (e.g., 'developer', 'coder1')")
             print("3. Minimal (e.g., 'dev', 'pro', 'ace')")
@@ -1225,7 +1225,7 @@ def interactive_mode():
             count = int(input("How many usernames? (default 5): ") or "5")
             usernames = generator.generate_multiple_usernames(count, style)
             
-            print(f"\n🎨 Generated {count} {style.replace('_', ' ').title()} Usernames:")
+            print(f"\nGenerated {count} {style.replace('_', ' ').title()} Usernames:")
             print("-" * 40)
             for i, username in enumerate(usernames, 1):
                 print(f"{i:2d}. {username}")
@@ -1235,7 +1235,7 @@ def interactive_mode():
             if username:
                 results = generator.check_username_across_platforms(username)
                 
-                print(f"\n📊 AVAILABILITY RESULTS for '{username}'")
+                print(f"\nAVAILABILITY RESULTS for '{username}'")
                 print("=" * 50)
                 
                 manual_urls = generator.generate_manual_check_urls(username)
@@ -1243,22 +1243,22 @@ def interactive_mode():
                 for site_key, result in results.items():
                     site_name = generator.websites[site_key]['name']
                     if result['available'] == True:
-                        status = "✅ Available"
+                        status = "Available"
                     elif result['available'] == False:
-                        status = "❌ Taken"
+                        status = "Taken"
                     else:
-                        status = "❓ Unknown"
+                        status = "Unknown"
                     
                     print(f"{site_name:<15} {status}")
                 
                 if manual_urls:
-                    print(f"\n🔗 MANUAL CHECK URLs for '{username}':")
+                    print(f"\nMANUAL CHECK URLs for '{username}':")
                     print("=" * 50)
                     for site_name, url in manual_urls.items():
                         print(f"{site_name:<15} {url}")
         
         elif choice == "4":
-            print("\n🎯 Find Available Username")
+            print("\nFind Available Username")
             print("1. Random style")
             print("2. Adjective + Noun style")
             print("3. Noun + Number style")
@@ -1275,18 +1275,18 @@ def interactive_mode():
             available_username = generator.find_available_username(style, max_attempts)
             
             if available_username:
-                print(f"\n🎉 SUCCESS! Available username: {available_username}")
+                print(f"\nSUCCESS! Available username: {available_username}")
                 print("You can use this username on multiple platforms!")
         
         elif choice == "5":
             display_website_list()
         
         elif choice == "6":
-            print("👋 Thanks for using Username Generator!")
+            print("Thanks for using Username Generator!")
             break
         
         else:
-            print("❌ Invalid choice! Please enter 1-6.")
+            print("Invalid choice! Please enter 1-6.")
 
 def main():
     """Main function with command-line argument support."""
@@ -1335,33 +1335,33 @@ Examples:
     # Command-line mode
     if args.generate:
         usernames = generator.generate_multiple_usernames(args.generate, args.style)
-        print(f"🎲 Generated {args.generate} {args.style.replace('_', ' ').title()} Usernames:")
+        print(f"Generated {args.generate} {args.style.replace('_', ' ').title()} Usernames:")
         print("-" * 40)
         for i, username in enumerate(usernames, 1):
             print(f"{i:2d}. {username}")
     
     elif args.check:
         results = generator.check_username_across_platforms(args.check)
-        print(f"\n📊 AVAILABILITY RESULTS for '{args.check}'")
+        print(f"\nAVAILABILITY RESULTS for '{args.check}'")
         print("=" * 50)
         
         for site_key, result in results.items():
             site_name = generator.websites[site_key]['name']
             if result['available'] == True:
-                status = "✅ Available"
+                status = "Available"
             elif result['available'] == False:
-                status = "❌ Taken"
+                status = "Taken"
             else:
-                status = "❓ Unknown"
+                status = "Unknown"
             
             print(f"{site_name:<15} {status}")
     
     elif args.find:
         available_username = generator.find_available_username(args.style)
         if available_username:
-            print(f"\n🎉 SUCCESS! Available username: {available_username}")
+            print(f"\nSUCCESS! Available username: {available_username}")
         else:
-            print("\n😞 No available username found.")
+            print("\nNo available username found.")
 
 if __name__ == "__main__":
     main()
