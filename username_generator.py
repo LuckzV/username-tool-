@@ -574,7 +574,7 @@ class UsernameGenerator:
         # Select random device fingerprint
         selected_device = random.choice(device_fingerprints)
         
-        # ULTRA AI SIGNAL MASKING: Hide every possible AI signature
+        # advanced signal masking
         session.headers.update({
             'User-Agent': selected_device['User-Agent'],
             'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
@@ -585,7 +585,7 @@ class UsernameGenerator:
             'Sec-Fetch-Dest': 'document',
             'Sec-Fetch-Mode': 'navigate',
             'Sec-Fetch-Site': 'cross-site',
-            # ULTRA AI MASKING HEADERS
+            # advanced masking headers
             'X-Forwarded-For': f"{random.randint(1,255)}.{random.randint(1,255)}.{random.randint(1,255)}.{random.randint(1,255)}",
             'X-Real-IP': f"{random.randint(1,255)}.{random.randint(1,255)}.{random.randint(1,255)}.{random.randint(1,255)}",
             'X-Client-IP': f"{random.randint(1,255)}.{random.randint(1,255)}.{random.randint(1,255)}.{random.randint(1,255)}",
