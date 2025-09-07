@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
-"""
-Universal Username Generator
-Generate available usernames for popular websites and apps with availability checking.
-"""
+# username generator - been working on this for a while
+# TODO: add more sites later
 
 import random
 import string
@@ -18,7 +16,7 @@ import json
 import base64
 from urllib.parse import urlencode
 
-# Disable SSL warnings
+# disable ssl warnings
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 class UsernameGenerator:
@@ -225,21 +223,13 @@ class UsernameGenerator:
             return username
     
     def _advanced_bypass_techniques(self, session: requests.Session, website: str) -> requests.Session:
-        """
-        ADVANCED BYPASS TECHNIQUES - Explained Simply:
+        # some tricks to avoid getting blocked
         
-        1. COOKIE JAR: Store cookies like a real browser
-        2. REFERER CHAIN: Make it look like you came from Google
-        3. HEADER SPOOFING: Fake browser fingerprints
-        4. SESSION PERSISTENCE: Keep connections alive
-        5. RANDOM DELAYS: Act human-like
-        """
-        
-        # Trick 1: Cookie Jar - Store cookies like a real browser
+        # store cookies
         if website not in self.session_cookies:
             self.session_cookies[website] = {}
         
-        # Trick 2: Referer Chain - Make it look like you came from Google
+        # fake referer
         if not self.referer_chain:
             self.referer_chain = [
                 'https://www.google.com/',
@@ -247,7 +237,7 @@ class UsernameGenerator:
                 'https://duckduckgo.com/'
             ]
         
-        # Trick 3: Enhanced Headers - Fake browser fingerprints
+        # fake headers
         session.headers.update({
             'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
             'Accept-Language': 'en-US,en;q=0.9',
