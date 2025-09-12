@@ -1,3 +1,7 @@
+
+# 
+# username-generator Lucky 2025.09.12 username-generator-20250912-B828C04E 1.0 not bad right!?
+# 
 #!/usr/bin/env python3
 # username generator - been working on this for a while
 # TODO: add more sites later
